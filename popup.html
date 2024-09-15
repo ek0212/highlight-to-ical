@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Text to iCal</title>
+  <style>
+    body { width: 300px; padding: 10px; }
+    button { margin-top: 10px; }
+    #message { margin-top: 10px; }
+    #message.error { color: red; font-weight: bold; }
+    #message.success { color: green; font-weight: bold; }
+    #preview { margin-top: 10px; }
+    .field { margin-bottom: 10px; }
+    label { display: block; }
+    input, textarea { width: 100%; }
+    .utc-note { color: #666; font-style: italic; font-size: 0.9em; }
+  </style>
+</head>
+<body>
+  <h1>Text to iCal</h1>
+  <p>Highlight text on the page, then click the button below to convert it to an iCal file.</p>
+  <button id="convert">Convert to iCal</button>
+  <div id="message"></div>
+  <div id="preview" style="display: none;">
+    <div class="field">
+      <label for="title">Title:</label>
+      <input type="text" id="title">
+    </div>
+    <div class="field">
+      <label for="startDate">Start Date:</label>
+      <input type="datetime-local" id="startDate">
+      <span class="utc-note">Value highlighted assumed to be in local time</span>
+    </div>
+    <div class="field">
+      <label for="endDate">End Date:</label>
+      <input type="datetime-local" id="endDate">
+      <span class="utc-note">Value highlighted assumed to be in local time</span>
+    </div>
+    <div class="field">
+      <label for="description">Description:</label>
+      <textarea id="description" rows="3"></textarea>
+    </div>
+    <button id="download">Download iCal</button>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
