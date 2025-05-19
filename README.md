@@ -8,6 +8,7 @@
 
 **Average page views per year:** 766  
 **Average weekly active users:** 132  
+**Total installs as of May 2025**: 195
 
 🔗 **Get it on Chrome Web Store:** [Text to iCal](https://chromewebstore.google.com/detail/text-to-ical/noicbpdnfmijedkglcegpgdcndooaamf)  
 
