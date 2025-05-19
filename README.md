@@ -6,6 +6,9 @@
 ## ✨ **Overview**  
 **Highlight to iCal** is a lightweight **Chrome extension** that lets you create calendar events in **Google Calendar, Apple Calendar, or any iCal-compatible app**—directly from highlighted text. With over **100+ active users**, it simplifies scheduling by extracting event details from text snippets.  
 
+**Average page views per year:** 766  
+**Average weekly active users:** 132  
+
 🔗 **Get it on Chrome Web Store:** [Text to iCal](https://chromewebstore.google.com/detail/text-to-ical/noicbpdnfmijedkglcegpgdcndooaamf)  
 
 ---
@@ -42,9 +45,3 @@ Want to improve the extension? Fork the repo and submit a PR!
    ```bash
    git clone https://github.com/ek0212/highlight-to-ical.git
    cd highlight-to-ical
-   ```  
-2. Load as an **unpacked extension** in Chrome:  
-   - Go to `chrome://extensions/`  
-   - Enable **Developer Mode**  
-   - Click **"Load unpacked"** and select the project folder  
-3. Make changes and test!  
