@@ -1,46 +1,92 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Text to iCal</title>
-  <style>
-    body { width: 300px; padding: 10px; }
-    button { margin-top: 10px; }
-    #message { margin-top: 10px; }
-    #message.error { color: red; font-weight: bold; }
-    #message.success { color: green; font-weight: bold; }
-    #preview { margin-top: 10px; }
-    .field { margin-bottom: 10px; }
-    label { display: block; }
-    input, textarea { width: 100%; }
-    .utc-note { color: #666; font-style: italic; font-size: 0.9em; }
-  </style>
+
+  <!-- Google Fonts - Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Text to iCal</h1>
-  <p>Highlight text on the page, then click the button below to convert it to an iCal file.</p>
-  <button id="convert">Convert to iCal</button>
+  <!-- Header with Theme Toggle -->
+  <div class="header">
+    <h1>Text to iCal</h1>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <!-- Sun icon (light mode) -->
+      <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+      <!-- Moon icon (dark mode) -->
+      <svg class="moon-icon" style="display: none;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
+  </div>
+
+  <p>Highlight text on the page containing a date and time, then click the button below to convert it to an iCal file.</p>
+
+  <button id="convert">
+    <!-- Calendar icon -->
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+      <line x1="16" y1="2" x2="16" y2="6"></line>
+      <line x1="8" y1="2" x2="8" y2="6"></line>
+      <line x1="3" y1="10" x2="21" y2="10"></line>
+    </svg>
+    Convert to iCal
+  </button>
+
   <div id="message"></div>
+
   <div id="preview" style="display: none;">
     <div class="field">
-      <label for="title">Title:</label>
-      <input type="text" id="title">
+      <label for="title">Event Title</label>
+      <input type="text" id="title" placeholder="e.g., Team Meeting">
     </div>
+
     <div class="field">
-      <label for="startDate">Start Date:</label>
+      <label for="startDate">Start Date & Time</label>
       <input type="datetime-local" id="startDate">
-      <span class="utc-note">Value highlighted assumed to be in local time</span>
+      <span class="utc-note">Assumed to be in your local timezone</span>
     </div>
+
     <div class="field">
-      <label for="endDate">End Date:</label>
+      <label for="endDate">End Date & Time</label>
       <input type="datetime-local" id="endDate">
-      <span class="utc-note">Value highlighted assumed to be in local time</span>
+      <span class="utc-note">Assumed to be in your local timezone</span>
     </div>
+
     <div class="field">
-      <label for="description">Description:</label>
-      <textarea id="description" rows="3"></textarea>
+      <label for="description">Description (optional)</label>
+      <textarea id="description" rows="3" placeholder="Add notes about this event..."></textarea>
     </div>
-    <button id="download">Download iCal</button>
+
+    <button id="download">
+      <!-- Download icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+        <polyline points="7 10 12 15 17 10"></polyline>
+        <line x1="12" y1="15" x2="12" y2="3"></line>
+      </svg>
+      Download iCal File
+    </button>
   </div>
+
   <script src="popup.js"></script>
+  <script src="theme.js"></script>
 </body>
 </html>

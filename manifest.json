@@ -1,9 +1,9 @@
 {
   "manifest_version": 3,
   "name": "Text to iCal",
-  "version": "1.0",
-  "description": "Highlight text and convert it to an iCal file",
-  "permissions": ["activeTab", "scripting"],
+  "version": "2.0",
+  "description": "Highlight text and convert it to an iCal file with modern UI and dark mode support",
+  "permissions": ["activeTab", "scripting", "storage"],
   "action": {
     "default_popup": "popup.html"
   },
